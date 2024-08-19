@@ -14,7 +14,7 @@ sfdx force:source:deploy -u <org-alias> -p ./force-app
 
 Click on this button to deploy to your org:
 
-<a href="https://githubsfdeploy.herokuapp.com?owner=systemyc&repo=composer-api-playground&ref=main">
+<a href="https://githubsfdeploy.herokuapp.com?owner=systemyc&repo=flow-lwc-collection-ordering&ref=main">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
