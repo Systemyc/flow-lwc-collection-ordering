@@ -1,0 +1,42 @@
+<template>
+    <template lwc:if={isLoading}>
+		<div class="spinner">
+			<lightning-spinner alternative-text={labels.loading} size="large" variant="brand"></lightning-spinner>
+		</div>
+	</template>
+	<template lwc:else>
+		<template lwc:if={error}>
+			<p>{labels.error}</p>
+			<p>{error}</p>
+		</template>
+		<template lwc:elseif={hasData}>
+			<div data-element-id="list-container" onclick={handleListClick}>
+				<template for:each={items} for:item="item" for:index="index">
+					<div key={item.id} data-id={item.id} class="item" onmousedown={dragStart} onmousemove={drag} data-element-id="item" data-index={item.index} data-element-temp-index={item.index}>
+						<div class="item-layout">
+							<div class="icon">
+								<lightning-icon icon-name="utility:drag_and_drop" alternative-text={labels.reorder} title={labels.reorder} size="small"></lightning-icon>
+							</div>
+							<div class="card">
+								<lightning-card title={item.header} icon-name={icon}>
+									<div lwc:if={displayIndex} slot="actions" class="index" title={item.originalIndex}>{item.visualIndex}</div>
+									<div lwc:if={item.fields} class="fields">
+										<template for:each={item.fields} for:item="field">
+											<div key={field.name} class="field">
+												<span class="field-label">{field.label}: </span>
+												<span class="field-value">{field.value}</span>
+											</div>
+										</template>
+									</div>
+								</lightning-card>
+							</div>
+						</div>
+					</div>
+				</template>
+			</div>
+		</template>
+		<template lwc:else>
+			<p>{labels.noData}</p>
+		</template>
+	</template>
+</template>

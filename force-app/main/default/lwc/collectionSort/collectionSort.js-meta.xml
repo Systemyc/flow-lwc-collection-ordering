@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Collection Sort</masterLabel>
+    <description>Allows the user to sort a collection of records</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <propertyType name="T" extends="SObject" label="Input Type" description="Generic sObject data type used for input sObject properties"/>
+            <property name="inputCollection" label="Input Collection" type="{T[]}" role="inputOnly" required="true" default="[]"/>
+            <property name="fieldList" label="Field List" description="Comma separated list of field API names to show" type="String" role="inputOnly" default="" />
+            <property name="headerField" label="Header Field" description="Field that will show as the header of the record" type="String" role="inputOnly"/>
+            <property name="sortField" label="Sort Field" description="Field used to sort the list of records" type="String" role="inputOnly"/>
+            <property name="sortFieldIsString" label="Sort Field is type String" description="The data type of the Sort Field field is a string instead of a number" type="Boolean" role="inputOnly" default="false" />
+            <property name="icon" label="Icon" description="Icon to reppresent the record. Use SLDS icon, e.g. standard:contact" type="String" role="inputOnly" default="utility:record" />
+            <property name="showIndex" label="Show Index" description="Whether to show the index of the record within the list" type="Boolean" role="inputOnly" default="true" />
+            <property name="outputCollection" label="Sorted Collection" type="{T[]}" role="outputOnly" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
